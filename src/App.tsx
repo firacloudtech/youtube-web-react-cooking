@@ -1,13 +1,22 @@
 import { useState } from "react";
+import { Route, Router, Routes } from "react-router-dom";
 import reactLogo from "./assets/react.svg";
-import Navbar from "./components/navbar/Navbar";
+import Navbar from "./components/home/Navbar";
+import HomePage from "./pages/HomePage";
+import MenuPage from "./pages/MenuPage";
+import ServicePage from "./pages/ServicePage";
+import ShopPage from "./pages/ShopPage";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="py-14 px-32 max-w-7xl mx-auto text-black">
+    <div className="max-w-7xl mx-auto text-black">
       <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/service" element={<ServicePage />} />
+        <Route path="/shop" element={<ShopPage />} />
+      </Routes>
     </div>
   );
 }
